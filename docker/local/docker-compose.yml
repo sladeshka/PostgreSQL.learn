@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: ${COMPOSE_PROJECT_NAME}_database
+    image: 'postgres:15'
+    environment:
+      PGPASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_DB: ${DB_DATABASE:-learn}
+      POSTGRES_USER: ${DB_USERNAME:-learn}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+    ports:
+      - ${DB_PORT:-5442}:5432
+    volumes:
+      - ./db/:/db
+    build:
+      context: .
+      dockerfile: ./Dockerfile
