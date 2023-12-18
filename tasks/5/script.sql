@@ -2,8 +2,8 @@ DROP SCHEMA customer_details CASCADE;
 CREATE SCHEMA customer_details AUTHORIZATION learn;
 -- paragraph 1
 -- paragraph 1.1, 1.2, 1.3
-DROP TABLE IF EXISTS customer_details.сustomers;
-CREATE TABLE IF NOT EXISTS customer_details.сustomers (
+DROP TABLE IF EXISTS customer_details.customers;
+CREATE TABLE IF NOT EXISTS customer_details.customers (
     customer_id BIGINT NOT NULL PRIMARY KEY,
     customer_title_id INTEGER NOT NULL,
     customer_firstname VARCHAR(50) NOT NULL,
@@ -18,15 +18,15 @@ CREATE TABLE IF NOT EXISTS customer_details.сustomers (
 );
 
 -- paragraph 1.4
-DROP SEQUENCE IF EXISTS customer_details.сustomers_serial;
-CREATE SEQUENCE customer_details.сustomers_serial
+DROP SEQUENCE IF EXISTS customer_details.customers_serial;
+CREATE SEQUENCE customer_details.customers_serial
     AS BIGINT 
     START 1
     OWNED BY
-    customer_details.сustomers.customer_id;
+    customer_details.customers.customer_id;
 
 -- paragraph 1.5
-ALTER TABLE customer_details.сustomers
+ALTER TABLE customer_details.customers
     ALTER date_added SET DEFAULT CURRENT_DATE;
 
 -- paragraph 2
@@ -120,7 +120,7 @@ SELECT * FROM share_details.shares;
 -- paragraph 5
 ALTER TABLE transaction_details.transactions
     ADD CONSTRAINT fk_customers_transactions FOREIGN KEY (customer_id)
-    REFERENCES customer_details.сustomers(customer_id);
+    REFERENCES customer_details.customers(customer_id);
 
 -- paragraph 6
 ALTER TABLE transaction_details.transactions

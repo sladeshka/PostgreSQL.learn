@@ -1,7 +1,7 @@
 -- paragraph 1
 -- paragraph 1.1, 1.2, 1.3, 1.4, 1.5, 
 CREATE UNIQUE INDEX IF NOT EXISTS ix_customers_customer_id
-    ON customer_details.сustomers 
+    ON customer_details.customers 
     USING btree 
     ( 
         customer_id
