@@ -81,7 +81,7 @@ CREATE TABLE customer_details.customers_products (
     financial_product_id BIGINT NOT NULL,
     amount_to_collect MONEY NOT NULL,
     frequency INT NOT NULL,
-    lastcollected TIMESTAMP(0) NOT NULL,
+    last_collected TIMESTAMP(0) NOT NULL,
     last_collection TIMESTAMP(0) NOT NULL,
     renewable BOOLEAN NOT NULL
 );
